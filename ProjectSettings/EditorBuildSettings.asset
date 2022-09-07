@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/ComfyCouch/AssetsGame/Singletons/Globals.unity
+    guid: b4cf37af29438eb49884661c8b1e267a
+  - enabled: 1
+    path: Assets/ComfyCouch/AssetsLevels/SplashMenu/SplashMenu.unity
+    guid: 690fdb43a247a8040ad8a51fb3d7ed80
+  - enabled: 0
     path: Assets/ComfyCouch/AssetsLevels/Level0/IndoorsScene.unity
     guid: 4dfb8795e1f5dca4ea4d398c7c09d137
-  - enabled: 1
-    path: Assets/SuperSoupLibrary/AssetsLevels/SanityTestRoom/SanityTestScene.unity
+  - enabled: 0
+    path: Assets/SuperSoupLibrary/SceneTemplates/SanityTest/SanityTestScene.unity
     guid: b43c34585bcd1604a8c78ef08b5dcae1
   m_configObjects: {}
