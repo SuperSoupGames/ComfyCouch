@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using SuperSoupGames.Legal;
+using System;
+using System.IO;
+using SuperSoupGames.Common;
 
 /// <summary>
 /// A statically available debugger for on-screen data visualization.
@@ -309,6 +312,19 @@ public class CBUG : MonoBehaviour, ILegal {
     public static void SrsError(string line)
     {
         GetRef()._SrsError(line);
+    }
+
+    public static void LogToFile(string line)
+    {
+        GetRef()._LogToFile(line);
+    }
+
+    private void _LogToFile(string line)
+    {
+        //StreamWriter writer = new StreamWriter(Application.persistentDataPath + 'MyLogFile.txt');
+        //writer.WriteLine("File created using StreamWriter class.");
+        //writer.Close();
+        Logging.WriteOnce(line, "Logs", "Log");
     }
 
     public static bool DEBUG_ON

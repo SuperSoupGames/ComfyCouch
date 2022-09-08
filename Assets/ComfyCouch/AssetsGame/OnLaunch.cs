@@ -29,14 +29,33 @@ public class OnLaunch:MonoBehaviour
 {
 
 	// This is NOT a Unity method! (the compiler flag below, is, though)
-    [RuntimeInitializeOnLoadMethod]
+    //[RuntimeInitializeOnLoadMethod]
     static void Run ()
     {
-        if(SceneManager.GetSceneByBuildIndex(0).isLoaded == true && Application.isEditor == false)
+        if(SceneManager.GetSceneByName(Main.Scenes.Globals.ToString()).isLoaded == true && Application.isEditor == false)
         {
             CBUG.Error("Globals already loaded! Are we in editor?");
             return;
         }
-        SceneManager.LoadScene(0, LoadSceneMode.Additive);
+        SceneManager.LoadScene(Main.Scenes.Globals.ToString(), LoadSceneMode.Additive);
+    }
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    static void OnBeforeSceneLoadRuntimeMethod()
+    {
+        Debug.Log("Before first Scene loaded");
+    }
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    static void OnAfterSceneLoadRuntimeMethod()
+    {
+        Debug.Log("After first Scene loaded");
+        Run();
+    }
+
+    [RuntimeInitializeOnLoadMethod]
+    static void OnRuntimeMethodLoad()
+    {
+        Debug.Log("RuntimeMethodLoad: After first Scene loaded");
     }
 }

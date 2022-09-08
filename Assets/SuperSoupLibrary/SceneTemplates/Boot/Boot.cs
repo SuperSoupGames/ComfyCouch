@@ -1,5 +1,5 @@
 /// <summary>
-/// Main
+/// Boot
 /// License: GNU AGPLv3
 /// Copyright (C) 2022 Super Soup Games
 /// 
@@ -22,29 +22,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SuperSoupLibrary;
+using UnityEngine.SceneManagement;
 
-public class Main : MonoBehaviour
+public class Boot : MonoBehaviour
 {
 
-    public enum Scenes
-    {
-        Null,
-        Globals,
-        Splash
-    }
+    public Main.Scenes FirstScene;
 
-    public static Scenes SceneCurrent = Scenes.Null;
-
-    // Start is called before the first frame update
     void Start()
     {
-        CBUG.Do("Hello World ... UwU");
-        StatusBoard.WriteMessage("TESTING!!!!!!!!!!!!!!!!!!");
+        CBUG.LogToFile("Booting ...");
+        CBUG.LogToFile("Success!");
+
+        SceneManager.LoadScene(FirstScene.ToString());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

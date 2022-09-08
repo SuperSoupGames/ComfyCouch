@@ -38,7 +38,7 @@ public class GenerateTags : AssetPostprocessor
         //    // Set array element to tagName
         //    sp.stringValue = tagName;
         //    Debug.Log("Tag: " + tagName + " has been added");
-        //    // Save settings
+        //    // WriteOnce settings
         //    tagManager.ApplyModifiedProperties();
         //    return true;
         //} else {
